@@ -29,7 +29,7 @@ endpython
 " -------------------------------
 function! DoCmd()
 	let s:line = getline('.')
-	echom "Hooah!"
+"	echom "Hooah!"
 
     let s:current_file = expand('%')
 python << endpython
