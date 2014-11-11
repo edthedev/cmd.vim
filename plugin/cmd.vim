@@ -16,9 +16,9 @@ import sys
 import os
 import vim
 script_path = vim.eval('s:path')
-print script_path
+# print script_path
 lib_path = os.path.join(script_path, '../bin')
-print lib_path
+# print lib_path
 sys.path.insert(0, lib_path)
 
 # import brain_of_minion as brain
@@ -29,12 +29,13 @@ endpython
 " -------------------------------
 function! DoCmd()
 	let s:line = getline('.')
-"	echom "Hooah!"
 
     let s:current_file = expand('%')
 python << endpython
 current_line = vim.eval("s:line")
-cmd(current_line)
+output = cmd(current_line)
+vim.command('let @1 = "' + output + '"')
+print output
 endpython
 endfunction
 
