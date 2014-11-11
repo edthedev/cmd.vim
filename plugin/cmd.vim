@@ -35,10 +35,14 @@ python << endpython
 current_line = vim.eval("s:line")
 output = cmd(current_line)
 vim.command('let @1 = "' + output + '"')
-print output
+# print output
 endpython
 endfunction
 
-map <Leader>cs :call DoCmd()<cr>
+" Run the command and echo the output.
+map <Leader>cs :call DoCmd()<cr>:echom @1<cr>
+" Paste the last command output from the last run.
 map <Leader>cp "1p
+" Run and then paste immediately.
+map <Leader>cc :call DoCmd()<cr>"1p
 
