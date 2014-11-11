@@ -39,6 +39,6 @@ print output
 endpython
 endfunction
 
-map <Leader>c :call DoCmd()<cr>
+map <Leader>cs :call DoCmd()<cr>
+map <Leader>cp "1p
 
-" foo
